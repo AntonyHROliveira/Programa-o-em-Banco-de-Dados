@@ -1,4 +1,4 @@
-
+CREATE DATABASE criandoDB;
 USE criandoBD;
 
 CREATE TABLE clientes(
