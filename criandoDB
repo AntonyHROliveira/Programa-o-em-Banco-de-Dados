@@ -1,0 +1,35 @@
+CREATE DATABASE criandoBD;
+USE criandoBD;
+
+CREATE TABLE vendas (
+    ID_Venda INT AUTO_INCREMENT PRIMARY KEY,
+    FK_Cliente INT,
+    FK_Produto INT,
+    Quantidade INT,
+    Data_Vendas DATE,
+    FOREIGN KEY (FK_Cliente) REFERENCES clientes(ID_Cliente),
+    FOREIGN KEY (FK_Produto) REFERENCES produtos(ID_Produto)
+);
+
+CREATE TABLE produtos(
+    ID_Produto INT AUTO_INCREMENT PRIMARY KEY,
+    Descricao VARCHAR(25),
+    Preco_unitario FLOAT,
+    Estoque INT,
+    FK_Categoria INT,
+    FOREIGN KEY (FK_Categoria) REFERENCES categorias(ID_Categoria)
+);
+
+CREATE TABLE categorias(
+    ID_Categoria INT AUTO_INCREMENT PRIMARY KEY,
+    Nome_Categoria VARCHAR(50)
+);
+
+CREATE TABLE clientes(
+    ID_Cliente INT AUTO_INCREMENT PRIMARY KEY,
+    Nome VARCHAR(50),
+    Cidade VARCHAR(50),
+    UF CHAR(2),
+    Data_Cadastro DATE
+);
+
